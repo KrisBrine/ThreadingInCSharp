@@ -18,9 +18,7 @@ namespace ThreadingUpdateUI
             InitializeComponent();
         }
 
-
         private List<Label> threadLabels = new List<Label>();
-
 
         private void btnGo_Click(object sender, EventArgs e)
         {
@@ -78,7 +76,6 @@ namespace ThreadingUpdateUI
             textBox1.Enabled = true;
             textBox2.Enabled = true;
         }
-
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
