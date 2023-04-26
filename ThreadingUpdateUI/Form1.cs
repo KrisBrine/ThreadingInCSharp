@@ -37,6 +37,19 @@ namespace ThreadingUpdateUI
                 l.Left = 5;
 
                 this.panel1.Controls.Add(l);
+
+                Task.Factory.StartNew(() =>
+                {
+                    for (int i = 0; i < iterationCount; i++)
+                    {
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            l.Text = i.ToString();
+                        });
+
+                        Thread.Sleep(sleepDuration);
+                    }
+                });
             }
         }
 
