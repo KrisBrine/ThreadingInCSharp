@@ -26,9 +26,11 @@ namespace ThreadingUpdateUI
         {
             if(threadLabels.Count < 100)
             {
+                //Reading UI
                 int.TryParse(textBox1.Text, out int iterationCount);
                 int.TryParse(textBox2.Text, out int sleepDuration);
 
+                //Setting up labe;
                 Label l = new Label();
                 l.Text = DateTime.Now.ToLongTimeString();
                 threadLabels.Add(l);
@@ -36,10 +38,13 @@ namespace ThreadingUpdateUI
                 l.Top = (panel1.Controls.Count * l.Height + 20);
                 l.Left = 5;
 
+                //adding lebel to UI
                 this.panel1.Controls.Add(l);
 
+                //Creating Thread
                 Task.Factory.StartNew(() =>
                 {
+                    //Doing stuff in thread
                     for (int i = 0; i < iterationCount; i++)
                     {
                         this.Invoke((MethodInvoker)delegate
@@ -77,7 +82,7 @@ namespace ThreadingUpdateUI
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if()
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
     }
 }
